@@ -9,6 +9,9 @@ Run
 $ gcc server.c -o server
 # execute
 $ ./server
+```
+Open another termial.
+```sh
 # compile
 $ gcc client.c -o client
 # execute
