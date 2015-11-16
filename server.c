@@ -1,20 +1,19 @@
 #include <stdio.h>
-#include <string.h>    //strlen
+#include <string.h>//strlen
 #include <sys/socket.h>
-#include <arpa/inet.h> //inet_addr
-#include <unistd.h>    //write
-#include <time.h> 
+#include <arpa/inet.h>//inet_addr
+#include <unistd.h>//write
+#include <time.h>
 #include <sys/types.h>
 #include <netinet/in.h>
 #include <stdlib.h>
 
 
-int main(int argc , char *argv[])
-{
+int main(int argc , char *argv[]) {
 	int socket_desc , client_sock , c;
 	struct sockaddr_in server , client;
 	char client_message[2000];
-	time_t ticks;     
+	time_t ticks;
 	int on = 1;
 
 	//Create socket
@@ -44,7 +43,7 @@ int main(int argc , char *argv[])
 	//puts("bind done");
 
 	//Listen
-	listen(socket_desc , 3); 
+	listen(socket_desc , 3);
 	//Accept and incoming connection
 	puts("Waiting for incoming connections...");
 	c = sizeof(struct sockaddr_in);
@@ -67,6 +66,6 @@ int main(int argc , char *argv[])
 	write(client_sock ,client_message,strlen(client_message));
 
 	close(client_sock);
-	close(socket_desc);   
+	close(socket_desc);
 	return 0;
 }
