@@ -7,7 +7,7 @@
 int main (int argc , char **argv) {
 	int sock;
 	struct sockaddr_in server;
-	char server_reply[2000];
+	char server_reply[3000];
 
 	//Create socket
 	sock = socket(AF_INET, SOCK_STREAM, 0);
@@ -15,7 +15,7 @@ int main (int argc , char **argv) {
 		printf("Could not create socket");
 	}
 
-	server.sin_addr.s_addr = inet_addr(argv[1]);
+	server.sin_addr.s_addr = inet_addr("127.0.0.1");
 	server.sin_family = AF_INET;
 	server.sin_port = htons(8888);
 
@@ -34,6 +34,6 @@ int main (int argc , char **argv) {
 
 	server_reply[26] = '\0';
 	printf("Server datetimes: %s", server_reply);
-
+	close(sock);
 	return 0;
 }
