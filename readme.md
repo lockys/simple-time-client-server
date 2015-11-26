@@ -1,6 +1,6 @@
 simple-time-client-server
 ==
-A simple server that reply current time to connected client.
+A simple server that replies current time to connected client.
 
 Run
 ==
